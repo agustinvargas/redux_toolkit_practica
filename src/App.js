@@ -5,14 +5,12 @@ import './App.css';
 import Notify from './features/notification/Notify';
 import { createPortal } from 'react-dom';
 import ToastList from './features/notification/ToastList';
-import { useSelector } from 'react-redux';
-import { selectNotify } from './features/notification/notifySlice';
+import UserList from './features/users/UserList';
 
 function App() {
-  const notifications = useSelector(selectNotify);
   return (
     <div className='App'>
-      <header className='App-header'>
+      {/* <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
         <Counter />
         <p>
@@ -57,12 +55,12 @@ function App() {
           </a>
         </span>
       </header>
-      <hr />
+      <hr /> */}
       <Notify />
-      {createPortal(
-        <ToastList data={notifications} />,
-        document.getElementById('notify')
-      )}
+      {createPortal(<ToastList />, document.getElementById('notify'))}
+      <br />
+      <hr />
+      <UserList />
     </div>
   );
 }
