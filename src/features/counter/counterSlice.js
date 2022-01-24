@@ -30,6 +30,9 @@ export const counterSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
+      console.log('state', state);
+      console.log('state value', state.value);
+      console.log('state status', state.status);
       state.value += 1;
     },
     decrement: (state) => {
@@ -37,6 +40,7 @@ export const counterSlice = createSlice({
     },
     // Use the PayloadAction type to declare the contents of `action.payload`
     incrementByAmount: (state, action) => {
+      console.log('action', action);
       state.value += action.payload;
     },
   },
